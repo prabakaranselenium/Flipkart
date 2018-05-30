@@ -85,6 +85,7 @@ public void the_user_selected_the_iphones(String itemname1, String itemname2, St
 
                 Set<String> WH2 = driver.getWindowHandles();
                 System.out.println(WH2);
+                System.out.println("Hai");
                 for(String x2:WH2)
                   {
                    if(!parentWindowID.equals(x2)){

@@ -6,19 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class FlipkartCustomsteps {
+public class AmazonCustomMethod {
 	static WebDriver driver;
-	
-
 	public static void gotocategory(String s1,String s2) throws InterruptedException{
-		String categoryLocator="//span[text()='@']";
-		String ActualMenuCategory=categoryLocator.replace("@",s1);
-		String ActualMenucategorysub=categoryLocator.replace("@",s2);
-		WebElement ele = driver.findElement(By.xpath(ActualMenuCategory));
+		String categoryLocator="//h2[text()='@']";
+		String Mainmenu=categoryLocator.replace("@",s1);
+		String Mainmenusub=categoryLocator.replace("@",s2);
+		WebElement ele = driver.findElement(By.xpath(Mainmenu));
 		Actions ac=new Actions(driver);
 		ac.moveToElement(ele).build().perform();
 		Thread.sleep(3000);
-		WebElement ele1 = driver.findElement(By.xpath(ActualMenucategorysub));
+		WebElement ele1 = driver.findElement(By.xpath(Mainmenusub));
 		ac.moveToElement(ele1).build().perform();
 		ele1.click();
 		
@@ -29,13 +27,8 @@ public class FlipkartCustomsteps {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Computer\\workspace\\DemoqaRegisteration\\src\\test\\resources\\Driver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://www.flipkart.com/");
-		driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();
-	    gotocategory("TVs & Appliances","Split ACs");
-	}
-	
-
-	
-	
-
+		driver.get("https://www.amazon.in/");
+		driver.findElement(By.xpath("//span[text()='Shop by']")).click();
+	    gotocategory("Echo & Alexa","Echo Plus");
+}
 }
